@@ -11,7 +11,7 @@ script: echo "This is the script"
 jobs:
   include:
   - stage: deploy
-    if: type NOT pull_request AND branch IS master
+    if: (type IS PUSH) AND (branch = master)
     provider: script
     script: skip
     deploy:
