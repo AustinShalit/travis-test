@@ -1,15 +1,18 @@
 sudo: false
 language: python
 python:
+  - 3.4
+  - 3.5
   - 3.6
 
-install: true
-script: true
+install: echo "This is the install"
+script: echo "This is the script"
 
 jobs:
   include:
   - stage: deploy
     if: type NOT pull_request AND branch IS master
-    script: true
+    provider: script
+    script: skip
     deploy:
-      script: true 
+      script: echo "This is the deploy"
